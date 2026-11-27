@@ -1,1 +1,281 @@
-pbpaste > index.html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>yuy | Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #f3f6fb;
+      --card-bg: #ffffff;
+      --primary-blue: #1a56db;
+      --primary-gradient: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+      --text-main: #1f2937;
+      --text-muted: #6b7280;
+      --tag-bg: #eff6ff;
+      --tag-text: #1d4ed8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 2.5rem 1.2rem;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .hero-card {
+      background: var(--primary-gradient);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 2.8rem 2.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 25px rgba(29, 78, 216, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 28px solid rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+
+    .hero-subtitle {
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      opacity: 0.95;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(4px);
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.8rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(229, 231, 235, 0.6);
+    }
+
+    .card-title {
+      color: var(--primary-blue);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-row {
+      display: flex;
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .info-label {
+      width: 100px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .info-value {
+      font-weight: 600;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background-color: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 0.3rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .sub-heading {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .clean-list {
+      padding-left: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    .clean-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .banner-card {
+      background: var(--primary-blue);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 1.6rem 2rem;
+      box-shadow: 0 6px 18px rgba(26, 86, 219, 0.15);
+    }
+
+    .banner-card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .banner-card p {
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 680px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-card {
+        padding: 2rem 1.5rem;
+      }
+      .hero-title {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header class="hero-card">
+      <div class="hero-subtitle">MY PORTFOLIO</div>
+      <h1 class="hero-title">こんにちは、yuy（ニックネーム）です。</h1>
+      <p class="hero-desc">情報工学を学んでいる大学3年生です。AI技術やゲーム開発に興味があります。</p>
+      <div class="hero-badges">
+        <span class="hero-badge">HTML / CSS</span>
+        <span class="hero-badge">Git / GitHub</span>
+        <span class="hero-badge">AI・自然言語処理</span>
+        <span class="hero-badge">ゲーム開発</span>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2 class="card-title">基本情報</h2>
+        <div class="info-row">
+          <span class="info-label">ニックネーム</span>
+          <span class="info-value">yuy</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">学年</span>
+          <span class="info-value">大学 3年</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">専攻</span>
+          <span class="info-value">工学部 情報工学科</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">興味・好きなこと</h2>
+        <p style="font-size: 0.95rem;">
+          興味のある分野は<strong>人工知能（AI）・自然言語処理・ゲーム開発</strong>です。<br>
+          普段はゲームをプレイしたり、ライブやイベントに参加したりするのが好きです。
+        </p>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">プログラミング経験</h2>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">Go</span>
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">Git</span>
+        </div>
+        <div class="sub-heading">これまで取り組んだこと</div>
+        <ul class="clean-list">
+          <li>Webページ・GUIアプリの作成</li>
+          <li>画像認識・データ分析の基礎演習</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">この授業で学びたいこと</h2>
+        <p style="font-size: 0.95rem;">
+          オープンソースソフトウェアの仕組みや、Git・GitHubを使った実践的なバージョン管理・公開方法を身につけ、今後の個人開発に活かしたいです。
+        </p>
+      </section>
+    </main>
+
+    <section class="banner-card">
+      <h2>ひとこと</h2>
+      <p>少しずつ自分で作れるものを増やしていけるよう、頑張ります！</p>
+    </section>
+
+    <footer>
+      <p>yuy | Portfolio &copy; 2026</p>
+    </footer>
+  </div>
+
+</body>
+</html>
